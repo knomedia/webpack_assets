@@ -45,10 +45,8 @@ To watch for changes from your webpack build files and compile per change, execu
 
 ```bash
 cd <your-rails-root>
-npm init #follow directions to create a project
-npm install --save webpack
-npm install --save jsx-loader
-bin/rails g webpack_assets:webpack #will build a webpack.config.js
+bin/rails g webpack_assets:init #will build webpack.config.js, and package.json
+npm install
 
 ```
 

@@ -1,0 +1,15 @@
+{
+  "name": "milkcrates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'add some tests!' "
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "jsx-loader": "^0.11.0",
+    "webpack": "^1.3.0-beta5"
+  }
+}
