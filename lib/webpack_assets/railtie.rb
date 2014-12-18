@@ -6,7 +6,7 @@ module WebpackAssets
     end
 
     generators do
-     require 'webpack_assets/generators/webpack.rb'
+     require 'webpack_assets/generators/init.rb'
     end
 
   end

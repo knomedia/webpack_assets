@@ -1,4 +1,5 @@
 require 'rails/generators'
+
 module WebpackAssets
   class Init < Rails::Generators::Base
 
@@ -24,9 +25,19 @@ module WebpackAssets
         puts "Skipping #{destination} because it already exists"
         puts "** make sure 'package.json' includes 'webpack' and 'jsx-loader' dependencies"
       else
-        copy_file 'package.json', destination
+        template 'package.json', destination
+        system "npm install"
       end
+    end
 
+    def add_config
+      application "config.webpack_build_path = 'app/assets/javascripts/bundle.js'"
+      application "# path or glob to webpack built assets"
+    end
+
+    private
+    def app_name
+      Rails.application.class.parent_name.underscore
     end
 
   end
