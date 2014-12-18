@@ -8,7 +8,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "jsx-loader": "^0.11.0",
+    "jsx-loader": "^0.12.2",
     "webpack": "^1.4.13"
   }
 }
