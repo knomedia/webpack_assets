@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["knomedia@gmail.com"]
   spec.summary       = %q{add webpack build into assets:precompile}
   spec.description   = %q{add webpack build into assets:precompile}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/knomedia/webpack_assets"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
