@@ -18,10 +18,8 @@ namespace :assets do
     sh "NODE_ENV=#{Rails.env} $(npm bin)/webpack"
   end
 
-  # can you look up the file to clobber based on the webpack file?
-  # "#{app.config.root}/#{app.config.}
+  # look up the file to clobber, or fallback to default
   task :clobber do
-
     path = begin
             "#{Rails.root}/#{Rails.application.config.webpack_build_path}"
            rescue
@@ -33,7 +31,7 @@ namespace :assets do
   namespace :webpack do
     desc 'compile with webpack and watch for changes'
     task :watch do
-      sh "NODE_ENV=#{Rails.env} $(npm bin)/webpack --config webpack.config.js --watch --devtool inline-source-map"
+      sh "NODE_ENV=#{Rails.env} $(npm bin)/webpack --config webpack.config.js --colors --watch --devtool inline-source-map"
     end
   end
 
