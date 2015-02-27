@@ -30,10 +30,13 @@ namespace :assets do
     rm_rf path
   end
 
+  config  = 'webpack.config.js'                   unless Rails.application.config.try(:webpack_config_path)
+  opts    = '--watch --devtool inline-source-map' unless Rails.application.config.try(:webpack_opts)
+
   namespace :webpack do
     desc 'compile with webpack and watch for changes'
     task :watch do
-      sh "NODE_ENV=#{Rails.env} $(npm bin)/webpack --config webpack.config.js --watch --devtool inline-source-map"
+      sh "NODE_ENV=#{Rails.env} $(npm bin)/webpack --config #{config} #{opts}"
     end
   end
 
