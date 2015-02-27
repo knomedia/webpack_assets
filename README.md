@@ -29,6 +29,23 @@ name, update your `config/application.rb` file:
 config.webpack_build_path = 'app/assets/javascripts/your-js-file.js'
 ````
 
+If you want to use a different webpack config file for a specific environment,
+such as `development`, update your `config/environment/development.rb` and
+specify the path to the config with `config.webpack_config_path`.
+
+````ruby
+# config/environments/development.rb
+config.webpack_config_path = 'webpack.dev.config.js'
+````
+
+Specify webpack command-line options with `config.webpack_opts`.
+The default is `--watch --devtool inline-source-map`.
+
+````ruby
+# config/environments.development.rb
+config.webpack_opts = '--watch --devtool inline-source-map'
+````
+
 Including the gem will automatically inject the webpack build into the
 precompilation of assets. To run your webpack build manually execute:
 
