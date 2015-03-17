@@ -31,7 +31,7 @@ namespace :assets do
   namespace :webpack do
     desc 'compile with webpack and watch for changes'
     task :watch do
-      sh "NODE_ENV=#{Rails.env} $(npm bin)/webpack --config webpack.config.js --colors --watch --devtool inline-source-map"
+      sh "NODE_ENV=#{Rails.env} $(npm bin)/webpack --config webpack.config.js --colors --progress --watch --devtool inline-source-map"
     end
   end
 
