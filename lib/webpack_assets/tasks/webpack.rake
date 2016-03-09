@@ -18,21 +18,22 @@ namespace :assets do
     sh "NODE_ENV=#{Rails.env} $(npm bin)/webpack"
   end
 
-  # look up the file to clobber, or fallback to default
-  task :clobber do
-    path = begin
-            "#{Rails.root}/#{Rails.application.config.webpack_build_path}"
-           rescue
-            "#{Rails.root}/app/assets/javascripts/bundle.js"
-           end
-    rm_rf path
-  end
-
   namespace :webpack do
     desc 'compile with webpack and watch for changes'
     task :watch do
       sh "NODE_ENV=#{Rails.env} $(npm bin)/webpack --config webpack.config.js --colors --progress --watch --devtool inline-source-map"
     end
+
+    # look up the file to clobber, or fallback to default
+    task :clobber do
+      path = begin
+              [Rails.application.config.webpack_build_path].flatten.map { |path| "#{Rails.root}/#{path}" }
+             rescue
+              "#{Rails.root}/app/assets/javascripts/bundle.js"
+             end
+    rm_rf path
+  end
+
   end
 
 end

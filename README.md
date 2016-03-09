@@ -29,6 +29,17 @@ name, update your `config/application.rb` file:
 config.webpack_build_path = 'app/assets/javascripts/your-js-file.js'
 ````
 
+For multiple files an array may be used:
+
+````ruby
+# config/application.rb
+config.webpack_build_path = [
+  'app/assets/javascripts/your-js-file1.js',
+  'app/assets/javascripts/your-js-file2.js',
+  'app/assets/javascripts/your-js-file3.js'
+]
+````
+
 Including the gem will automatically inject the webpack build into the
 precompilation of assets. To run your webpack build manually execute:
 
